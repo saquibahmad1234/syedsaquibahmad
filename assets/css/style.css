@@ -1,8 +1,4 @@
 /* Global design system */
-body {
-  background: red !important;
-}
-
 :root {
   --purple-main: #7c6cf6;
   --purple-soft: #f4f1ff;
