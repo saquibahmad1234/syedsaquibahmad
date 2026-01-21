@@ -1,25 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>{{ page.title }}</title>
-  <meta name="description" content="{{ page.description }}" />
+  <meta name="description" content="{{ page.description }}">
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/style.css">
-  <script src="/assets/js/animations.js" defer></script>
-
-
-  {% if page.extra_head %}
-    {{ page.extra_head }}
-  {% endif %}
 </head>
-
 <body>
 
   {% include header.html %}
@@ -30,4 +19,3 @@
 
 </body>
 </html>
-
