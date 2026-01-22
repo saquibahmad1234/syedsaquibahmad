@@ -119,6 +119,11 @@ blockquote {
   padding-top: 6rem; /* prevents overlap with sticky header */
 }
 
+h1, h2, h3 {
+  scroll-margin-top: 100px;
+}
+
+
 .post-header h1 {
   scroll-margin-top: 6rem; /* fixes anchor / scroll issues */
 }
