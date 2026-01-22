@@ -175,38 +175,49 @@ blockquote {
 
 .intro {
   margin-bottom: 3rem;
+  max-width: 680px;
 }
 
+/* 2-column grid on desktop */
 .posts-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 2.5rem;
 }
 
+/* Blog tile */
 .post-card {
-  background: rgba(255,255,255,0.75);
+  background: #faf7f2; /* light beige */
   border-radius: 20px;
-  border: 1px solid rgba(124,108,246,0.15);
-  box-shadow: 0 20px 40px rgba(124,108,246,0.1);
+  border: 1px solid rgba(124,108,246,0.12);
+  box-shadow: 0 20px 40px rgba(124,108,246,0.08);
   transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
 .post-card a {
   display: block;
-  padding: 2rem;
+  padding: 2.2rem;
   text-decoration: none;
   color: inherit;
 }
 
 .post-card:hover {
-  transform: translateY(-6px) scale(1.03);
-  box-shadow: 0 30px 60px rgba(124,108,246,0.2);
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 30px 60px rgba(124,108,246,0.18);
 }
 
-.meta {
+/* Meta text */
+.post-card .meta {
   font-size: 0.85rem;
   color: var(--text-muted);
   margin-bottom: 0.8rem;
+}
+
+/* Mobile: single column */
+@media (max-width: 768px) {
+  .posts-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* =========================
