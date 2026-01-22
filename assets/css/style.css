@@ -321,3 +321,55 @@ blockquote {
     margin-right: 1rem;
   }
 }
+
+/* =========================
+   Post Footer Navigation
+   ========================= */
+
+.post-footer {
+  margin-top: 5rem;
+  padding-top: 3rem;
+  border-top: 1px solid rgba(124,108,246,0.15);
+}
+
+/* Back to writing */
+.back-to-writing {
+  margin-bottom: 2.5rem;
+}
+
+.back-to-writing a {
+  text-decoration: none;
+  font-size: 0.95rem;
+  color: var(--purple-main);
+}
+
+/* Previous / Next links */
+.post-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.post-nav a {
+  text-decoration: none;
+  font-size: 0.95rem;
+  color: var(--text-dark);
+  max-width: 45%;
+  line-height: 1.4;
+}
+
+.post-nav a:hover {
+  color: var(--purple-main);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .post-nav {
+    flex-direction: column;
+  }
+
+  .post-nav a {
+    max-width: 100%;
+  }
+}
+
