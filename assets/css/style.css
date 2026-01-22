@@ -21,15 +21,27 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+body {
+  padding-top: 80px; /* height of header */
+}
+
+
 /* Header */
 header {
-  position: sticky;
+  position: fixed;
   top: 0;
-  background: linear-gradient(180deg, rgba(124,108,246,0.95), rgba(124,108,246,0.85));
+  left: 0;
+  width: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(124,108,246,0.95),
+    rgba(124,108,246,0.85)
+  );
   backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(255,255,255,0.25);
-  z-index: 9999;
+  z-index: 10000;
 }
+
 
 nav {
   max-width: 1100px;
@@ -49,7 +61,7 @@ nav strong {
 main {
   max-width: 900px;
   margin: auto;
-  padding: calc(6rem + 80px) 2rem 4rem;
+  padding: 4rem 2rem;
 }
 
 h1 {
@@ -127,3 +139,13 @@ h1, h2, h3 {
 .post-header h1 {
   scroll-margin-top: 6rem; /* fixes anchor / scroll issues */
 }
+
+.post-header {
+  margin-bottom: 3rem;
+}
+
+.post-content {
+  position: relative;
+  z-index: 1;
+}
+
