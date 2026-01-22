@@ -1,0 +1,33 @@
+---
+layout: default
+title: Writing · Syed Saquib Ahmad
+description: Essays and notes on money, taxation, investing, and long-term thinking.
+permalink: /blogs/
+---
+
+<main>
+  <section class="blogs">
+    <h1>Writing</h1>
+
+    <p class="intro">
+      Essays, notes, and reflections on money, taxation, investing, and how
+      decisions age over time. I write primarily to think clearly.
+    </p>
+
+    <div class="posts-grid">
+      {% for post in site.posts %}
+        <article class="post-card">
+          <a href="{{ post.url | relative_url }}">
+            <h2>{{ post.title }}</h2>
+            <div class="meta">
+              {{ post.date | date: "%B %Y" }}{% if post.read_time %} · {{ post.read_time }} min read{% endif %}
+            </div>
+            <p class="excerpt">
+              {{ post.excerpt | strip_html | truncate: 160 }}
+            </p>
+          </a>
+        </article>
+      {% endfor %}
+    </div>
+  </section>
+</main>
