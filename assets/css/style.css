@@ -8,6 +8,7 @@
   --text-dark: #1c1c1c;
   --text-muted: #5f5f6b;
   --white: #ffffff;
+  --beige: #faf7f2;
 }
 
 /* =========================
@@ -25,16 +26,16 @@ html {
 }
 
 body {
-  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   background: linear-gradient(180deg, var(--purple-soft), #ffffff 70%);
   color: var(--text-dark);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
-  padding-top: 80px; /* space for fixed header */
+  padding-top: 64px; /* space for fixed header */
 }
 
 /* =========================
-   Header & Navigation
+   Site Header & Navigation
    ========================= */
 
 .site-header {
@@ -42,6 +43,7 @@ body {
   top: 0;
   left: 0;
   width: 100%;
+  height: 64px;
   background: linear-gradient(
     180deg,
     rgba(124,108,246,0.95),
@@ -55,10 +57,12 @@ body {
 .nav {
   max-width: 1100px;
   margin: auto;
-  padding: 1rem 1.5rem;
+  height: 100%;
+  padding: 0 1.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: relative;
 }
 
 .nav-left strong {
@@ -67,7 +71,7 @@ body {
   letter-spacing: -0.02em;
 }
 
-/* Links (desktop) */
+/* Desktop links */
 .nav-links {
   display: flex;
   gap: 1.5rem;
@@ -80,16 +84,16 @@ body {
 }
 
 .nav-links a:hover {
-  color: #ffffff;
+  color: white;
 }
 
-/* Menu button (hidden on desktop) */
+/* Menu toggle (hidden on desktop) */
 .menu-toggle {
   display: none;
-  font-size: 1.5rem;
   background: none;
   border: none;
   color: white;
+  font-size: 1.6rem;
   cursor: pointer;
 }
 
@@ -102,19 +106,9 @@ body {
     display: block;
   }
 
-  .nav {
-    position: relative;
-  }
-
-  .menu-toggle {
-    position: absolute;
-    right: 1.5rem;
-    top: 1rem;
-  }
-
   .nav-links {
     position: absolute;
-    top: calc(100% - 1px);
+    top: 64px; /* EXACTLY header height */
     left: 0;
     right: 0;
 
@@ -127,11 +121,11 @@ body {
     flex-direction: column;
     padding: 0.5rem 1.5rem 0.8rem;
 
-    /* Animation setup */
     max-height: 0;
     overflow: hidden;
     opacity: 0;
     transform: translateY(-10px);
+    z-index: 9999;
 
     transition:
       max-height 0.35s ease,
@@ -140,44 +134,16 @@ body {
   }
 
   .nav-links a {
-  padding: 0.6rem 0; /* ~70% of earlier spacing */
-  font-size: 0.95rem;
-}
+    padding: 0.5rem 0;
+    font-size: 0.95rem;
+  }
 
   .nav-links.open {
-    max-height: 400px; /* enough to fit all links */
+    max-height: 400px;
     opacity: 1;
     transform: translateY(0);
   }
 }
-
-@media (max-width: 768px) {
-  .nav {
-    position: relative;
-  }
-
-  .menu-toggle {
-    position: absolute;
-    right: 1.5rem;
-    top: 1rem;
-  }
-}
-
-
-
-/* =========================
-   Site Footer
-   ========================= */
-
-.site-footer {
-  margin-top: 6rem;
-  padding: 3rem 2rem;
-  text-align: center;
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  background: var(--purple-soft);
-}
-
 
 /* =========================
    Main Layout
@@ -279,16 +245,14 @@ blockquote {
   max-width: 680px;
 }
 
-/* 2-column grid on desktop */
 .posts-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 2.5rem;
 }
 
-/* Blog tile */
 .post-card {
-  background: #faf7f2; /* light beige */
+  background: var(--beige);
   border-radius: 20px;
   border: 1px solid rgba(124,108,246,0.12);
   box-shadow: 0 20px 40px rgba(124,108,246,0.08);
@@ -307,18 +271,10 @@ blockquote {
   box-shadow: 0 30px 60px rgba(124,108,246,0.18);
 }
 
-/* Meta text */
-.post-card .meta {
+.meta {
   font-size: 0.85rem;
   color: var(--text-muted);
   margin-bottom: 0.8rem;
-}
-
-/* Mobile: single column */
-@media (max-width: 768px) {
-  .posts-grid {
-    grid-template-columns: 1fr;
-  }
 }
 
 /* =========================
@@ -330,16 +286,12 @@ blockquote {
   margin: auto;
 }
 
-/* Post header */
 .post-header {
   margin-bottom: 3.5rem;
 }
 
 .post-header h1 {
-  font-size: clamp(2.4rem, 4vw, 3.2rem);
   line-height: 1.15;
-  letter-spacing: -0.02em;
-  margin-bottom: 1rem;
 }
 
 .post-meta {
@@ -347,7 +299,6 @@ blockquote {
   color: var(--text-muted);
 }
 
-/* Post content */
 .post-content {
   font-size: 1.05rem;
   line-height: 1.75;
@@ -355,72 +306,11 @@ blockquote {
 
 .post-content p {
   margin-bottom: 1.8rem;
-  max-width: 100%;
 }
 
-/* Section headings inside posts */
 .post-content h2 {
-  font-size: 1.6rem;
-  font-weight: 500;
   margin-top: 4rem;
   margin-bottom: 1.2rem;
-  letter-spacing: -0.01em;
-}
-
-/* Blockquotes */
-.post-content blockquote {
-  margin: 3rem 0;
-  padding-left: 1.6rem;
-  border-left: 3px solid var(--purple-main);
-  font-size: 1.2rem;
-  line-height: 1.6;
-  color: var(--text-dark);
-}
-
-/* Lists (future-proofing) */
-.post-content ul,
-.post-content ol {
-  margin: 2rem 0 2rem 1.2rem;
-}
-
-.post-content li {
-  margin-bottom: 0.6rem;
-}
-
-/* Mobile refinement */
-@media (max-width: 768px) {
-  .post {
-    padding: 0 0.2rem;
-  }
-
-  .post-header h1 {
-    font-size: 2.2rem;
-  }
-}
-
-
-/* =========================
-   Mobile
-   ========================= */
-
-@media (max-width: 768px) {
-  .about-hero {
-    grid-template-columns: 1fr;
-  }
-
-  nav {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .nav-links {
-    margin-top: 0.8rem;
-  }
-
-  .nav-links a {
-    margin-left: 0;
-    margin-right: 1rem;
-  }
 }
 
 /* =========================
@@ -433,49 +323,9 @@ blockquote {
   border-top: 1px solid rgba(124,108,246,0.15);
 }
 
-/* Back to writing */
 .back-to-writing {
   margin-bottom: 2.5rem;
 }
-
-.back-to-writing a {
-  text-decoration: none;
-  font-size: 0.95rem;
-  color: var(--purple-main);
-}
-
-/* Previous / Next links */
-.post-nav {
-  display: flex;
-  justify-content: space-between;
-  gap: 2rem;
-}
-
-.post-nav a {
-  text-decoration: none;
-  font-size: 0.95rem;
-  color: var(--text-dark);
-  max-width: 45%;
-  line-height: 1.4;
-}
-
-.post-nav a:hover {
-  color: var(--purple-main);
-}
-
-/* Mobile */
-@media (max-width: 768px) {
-  .post-nav {
-    flex-direction: column;
-  }
-
-  .post-nav a {
-    max-width: 100%;
-  }
-}
-/* =========================
-   Post Navigation Buttons
-   ========================= */
 
 .back-to-writing a {
   display: inline-block;
@@ -491,15 +341,22 @@ blockquote {
   background: rgba(124,108,246,0.18);
 }
 
+.post-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
 .post-nav a {
   display: inline-block;
   padding: 0.8rem 1.4rem;
   border-radius: 14px;
-  background: #faf7f2; /* same beige as blog tiles */
+  background: var(--beige);
   border: 1px solid rgba(124,108,246,0.15);
   text-decoration: none;
   font-size: 0.95rem;
-  color: var(--purple-main);
+  color: var(--text-dark);
+  max-width: 45%;
 }
 
 .post-nav a:hover {
@@ -507,3 +364,37 @@ blockquote {
   color: var(--purple-main);
 }
 
+/* =========================
+   Site Footer
+   ========================= */
+
+.site-footer {
+  margin-top: 6rem;
+  padding: 3rem 2rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  background: var(--purple-soft);
+}
+
+/* =========================
+   Mobile General
+   ========================= */
+
+@media (max-width: 768px) {
+  .about-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .posts-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .post-nav {
+    flex-direction: column;
+  }
+
+  .post-nav a {
+    max-width: 100%;
+  }
+}
