@@ -52,31 +52,81 @@ body {
   z-index: 10000;
 }
 
-nav {
+.nav {
   max-width: 1100px;
   margin: auto;
-  padding: 1rem 2rem;
+  padding: 1rem 1.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-nav strong {
-  color: var(--white);
+.nav-left strong {
+  color: white;
   font-weight: 500;
   letter-spacing: -0.02em;
 }
 
+/* Links (desktop) */
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
 .nav-links a {
-  margin-left: 1.5rem;
   text-decoration: none;
-  color: rgba(255,255,255,0.85);
+  color: rgba(255,255,255,0.9);
   font-size: 0.95rem;
 }
 
 .nav-links a:hover {
   color: #ffffff;
 }
+
+/* Menu button (hidden on desktop) */
+.menu-toggle {
+  display: none;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+/* =========================
+   Mobile Navigation
+   ========================= */
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(124,108,246,0.98),
+      rgba(124,108,246,0.92)
+    );
+    flex-direction: column;
+    padding: 1.5rem;
+    display: none;
+  }
+
+  .nav-links a {
+    padding: 0.6rem 0;
+    font-size: 1rem;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+}
+
 
 /* =========================
    Site Footer
