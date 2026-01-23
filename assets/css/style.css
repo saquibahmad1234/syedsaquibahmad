@@ -386,4 +386,37 @@ blockquote {
     max-width: 100%;
   }
 }
+/* =========================
+   Post Navigation Buttons
+   ========================= */
+
+.back-to-writing a {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  border-radius: 999px;
+  background: rgba(124,108,246,0.1);
+  color: var(--purple-main);
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.back-to-writing a:hover {
+  background: rgba(124,108,246,0.18);
+}
+
+.post-nav a {
+  display: inline-block;
+  padding: 0.8rem 1.4rem;
+  border-radius: 14px;
+  background: #faf7f2; /* same beige as blog tiles */
+  border: 1px solid rgba(124,108,246,0.15);
+  text-decoration: none;
+  font-size: 0.95rem;
+  color: var(--text-dark);
+}
+
+.post-nav a:hover {
+  border-color: var(--purple-main);
+  color: var(--purple-main);
+}
 
