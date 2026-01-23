@@ -412,7 +412,7 @@ blockquote {
   border: 1px solid rgba(124,108,246,0.15);
   text-decoration: none;
   font-size: 0.95rem;
-  color: var(--text-dark);
+  color: var(--purple-main);
 }
 
 .post-nav a:hover {
