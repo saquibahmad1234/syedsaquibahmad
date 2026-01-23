@@ -79,6 +79,20 @@ nav strong {
 }
 
 /* =========================
+   Site Footer
+   ========================= */
+
+.site-footer {
+  margin-top: 6rem;
+  padding: 3rem 2rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  background: var(--purple-soft);
+}
+
+
+/* =========================
    Main Layout
    ========================= */
 
