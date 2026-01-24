@@ -596,3 +596,51 @@ blockquote {
 .search-wrapper button:hover {
   background: rgba(124,108,246,0.3);
 }
+
+/* =========================
+   Contact page buttons
+   ========================= */
+
+.contact-methods {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin: 3rem 0;
+}
+
+.contact-card h2 {
+  margin-bottom: 0.6rem;
+}
+
+.contact-link {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.65rem 1.6rem;
+  border-radius: 999px;
+  background: rgba(124,108,246,0.15);
+  color: var(--purple-main);
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.contact-link:hover {
+  background: rgba(124,108,246,0.25);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(124,108,246,0.15);
+}
+
+/* Contact note */
+.contact-note {
+  max-width: 720px;
+  margin-top: 3rem;
+  color: var(--text-muted);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .contact-methods {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
