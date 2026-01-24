@@ -25,7 +25,7 @@ permalink: /blogs/
 
   <!-- Results -->
   <section class="posts-grid" id="search-results">
-    {% assign blog_posts = site.posts | where_exp: "post", "post.categories contains 'blogs'" %}
+    {% assign blog_posts = site.posts | where_exp: "post", "post.categories contains 'blog'" %}
     {% for post in blog_posts %}
       <article class="post-card">
         <a href="{{ post.url | relative_url }}">
