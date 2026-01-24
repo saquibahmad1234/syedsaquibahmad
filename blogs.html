@@ -1,56 +1,39 @@
 ---
 layout: default
 title: Blogs · Syed Saquib Ahmad
-description: Writing on thinking, decisions, money, and clarity.
 permalink: /blogs/
 ---
 
 <main>
   <section class="intro">
     <h1>Blogs</h1>
-    <p>
-      Writing to think clearly — about decisions, money, and how small choices
-      compound over time.
-    </p>
+    <p>Writing to think clearly — about decisions, money, and how small choices compound over time.</p>
   </section>
 
-  <!-- Search bar (Blogs only) -->
+  <!-- Search -->
   <div class="search-wrapper">
     <input
       type="text"
       id="search-input"
       placeholder="Search writing…"
-      aria-label="Search blog posts"
+      data-category="blog"
     >
-    <button id="search-button">Search</button>
   </div>
 
-
-  <!-- Blog posts -->
+  <!-- Results -->
   <section class="posts-grid" id="search-results">
     {% assign blog_posts = site.posts | where_exp: "post", "post.categories contains 'blogs'" %}
-
     {% for post in blog_posts %}
       <article class="post-card">
         <a href="{{ post.url | relative_url }}">
           <h3>{{ post.title }}</h3>
-
           <div class="meta">
             {{ post.date | date: "%B %Y" }}
-            {% if post.read_time %}
-              · {{ post.read_time }} min read
-            {% endif %}
+            {% if post.read_time %} · {{ post.read_time }} min read{% endif %}
           </div>
-
-          <p>
-            {{ post.excerpt | strip_html | truncate: 140 }}
-          </p>
+          <p>{{ post.excerpt | strip_html | truncate: 140 }}</p>
         </a>
       </article>
     {% endfor %}
-
-    {% if blog_posts == empty %}
-      <p>No blog posts published yet.</p>
-    {% endif %}
   </section>
 </main>
