@@ -1,0 +1,59 @@
+---
+layout: default
+title: Taxation · Syed Saquib Ahmad
+description: Thoughtful writing and guidance on taxation, planning, and long-term decision-making.
+permalink: /consultancy/taxation/
+---
+
+<main class="taxation">
+  <section class="taxation-intro">
+    <h1>Taxation</h1>
+
+    <p class="intro">
+      I think about taxation less as a compliance exercise and more as a
+      decision-making problem. Most tax mistakes don’t come from ignorance —
+      they come from acting before understanding consequences.
+    </p>
+
+    <p>
+      This page brings together how I approach taxation, the kind of questions
+      I spend time on, and writing that explores tax-related decisions with
+      clarity and restraint.
+    </p>
+  </section>
+
+  <section class="taxation-scope">
+    <h2>What I focus on</h2>
+    <ul>
+      <li>Understanding tax implications before decisions are made</li>
+      <li>Planning with context, not shortcuts</li>
+      <li>Interpreting rules calmly instead of reacting to them</li>
+      <li>Avoiding urgency-driven tax decisions</li>
+    </ul>
+  </section>
+
+  <section class="taxation-writing">
+    <h2>Writing on taxation</h2>
+
+    <div class="posts-grid">
+      {% assign tax_posts = site.posts | where_exp: "post", "post.categories contains 'taxation'" %}
+      {% for post in tax_posts %}
+        <article class="post-card">
+          <a href="{{ post.url | relative_url }}">
+            <h3>{{ post.title }}</h3>
+            <div class="meta">{{ post.date | date: "%B %Y" }}</div>
+            <p>{{ post.excerpt | strip_html | truncate: 140 }}</p>
+          </a>
+        </article>
+      {% endfor %}
+
+      {% if tax_posts == empty %}
+        <p>No taxation-specific writing yet. Articles will appear here as they are published.</p>
+      {% endif %}
+    </div>
+  </section>
+
+  <section class="taxation-back">
+    <a href="{{ '/consultancy/' | relative_url }}">← Back to consultancy</a>
+  </section>
+</main>
