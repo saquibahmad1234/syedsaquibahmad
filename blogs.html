@@ -1,46 +1,54 @@
 ---
 layout: default
-title: Writing · Syed Saquib Ahmad
-description: Essays and notes on money, taxation, investing, and long-term thinking.
+title: Blogs · Syed Saquib Ahmad
+description: Writing on thinking, decisions, money, and clarity.
 permalink: /blogs/
 ---
 
 <main>
-  <section class="blogs">
-    <h1>Writing</h1>
-
-    <p class="intro">
-      Essays, notes, and reflections on money, taxation, investing, and how
-      decisions age over time. I write primarily to think clearly.
+  <section class="intro">
+    <h1>Blogs</h1>
+    <p>
+      Writing to think clearly — about decisions, money, and how small choices
+      compound over time.
     </p>
+  </section>
 
-    <section class="posts-grid">
-      {% assign blog_posts = site.posts | where_exp: "post", "post.categories contains 'blogs'" %}
-    
-      {% for post in blog_posts %}
-        <article class="post-card">
-          <a href="{{ post.url | relative_url }}">
-            <h3>{{ post.title }}</h3>
-    
-            <div class="meta">
-              {{ post.date | date: "%B %Y" }}
-              {% if post.read_time %}
-                · {{ post.read_time }} min read
-              {% endif %}
-            </div>
-    
-            <p>
-              {{ post.excerpt | strip_html | truncate: 140 }}
-            </p>
-          </a>
-        </article>
-      {% endfor %}
-    
-      {% if blog_posts == empty %}
-        <p>No writing published yet.</p>
-      {% endif %}
-    </section>
+  <!-- Search bar (Blogs only) -->
+  <div class="search-wrapper">
+    <input
+      type="text"
+      id="search-input"
+      placeholder="Search writing…"
+      aria-label="Search blog posts"
+    >
+  </div>
 
+  <!-- Blog posts -->
+  <section class="posts-grid" id="search-results">
+    {% assign blog_posts = site.posts | where_exp: "post", "post.categories contains 'blogs'" %}
 
+    {% for post in blog_posts %}
+      <article class="post-card">
+        <a href="{{ post.url | relative_url }}">
+          <h3>{{ post.title }}</h3>
+
+          <div class="meta">
+            {{ post.date | date: "%B %Y" }}
+            {% if post.read_time %}
+              · {{ post.read_time }} min read
+            {% endif %}
+          </div>
+
+          <p>
+            {{ post.excerpt | strip_html | truncate: 140 }}
+          </p>
+        </a>
+      </article>
+    {% endfor %}
+
+    {% if blog_posts == empty %}
+      <p>No blog posts published yet.</p>
+    {% endif %}
   </section>
 </main>
