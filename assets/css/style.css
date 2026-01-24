@@ -485,7 +485,7 @@ blockquote {
   grid-column: 1 / 2;
 }
 
-.who-its-for {
+.who-its-for h1 {
   grid-column: 2 / 3;
 }
 
