@@ -400,10 +400,33 @@ blockquote {
 }
 
 /* =========================
-   Consultancy Page – FIXED LAYOUT
+   Consultancy Page (Clean)
    ========================= */
 
-/* Reduce excessive vertical spacing */
+.consultancy {
+  max-width: 1100px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 4rem;
+}
+
+/* Page title + intro span full width */
+.consultancy h1,
+.consultancy .intro,
+.consultancy > p {
+  grid-column: 1 / -1;
+}
+
+/* Intro text styling */
+.consultancy .intro,
+.consultancy > p {
+  text-align: justify;
+  margin-bottom: 1.2rem;
+  max-width: 720px;
+}
+
+/* Reduce excessive spacing */
 .consultancy h1 {
   margin-bottom: 1.5rem;
 }
@@ -412,33 +435,52 @@ blockquote {
   margin-bottom: 1.2rem;
 }
 
-/* Create ONE two-column grid for page body */
-.consultancy > .consultancy-actions,
-.consultancy > .how-it-works,
-.consultancy > .who-its-for {
-  margin-top: 2.5rem;
-}
+/* =========================
+   Action Buttons (Cards)
+   ========================= */
 
-/* Wrap everything after intro into two columns */
-.consultancy {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  column-gap: 4rem;
-}
-
-/* Make heading + intro span full width */
-.consultancy > h1,
-.consultancy > .intro,
-.consultancy > p {
-  grid-column: 1 / -1;
-}
-
-/* Buttons sit naturally in columns */
 .consultancy-actions {
   grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin: 3rem 0 2.5rem;
 }
 
-/* Text sections split into columns */
+.consultancy-card {
+  display: block;
+  padding: 2.4rem;
+  background: #fff1f6; /* baby pink */
+  border-radius: 22px;
+  border: 1px solid rgba(124,108,246,0.12);
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.consultancy-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(124,108,246,0.15);
+}
+
+.consultancy-card h2 {
+  margin-bottom: 0.8rem;
+}
+
+.consultancy-card p {
+  margin-bottom: 1.2rem;
+  text-align: justify;
+}
+
+.consultancy-card .cta {
+  font-size: 0.9rem;
+  color: var(--purple-main);
+}
+
+/* =========================
+   Two-column Content
+   ========================= */
+
 .how-it-works {
   grid-column: 1 / 2;
 }
@@ -447,9 +489,14 @@ blockquote {
   grid-column: 2 / 3;
 }
 
-/* Tighten list spacing */
+.how-it-works h2,
+.who-its-for h2 {
+  margin-bottom: 0.8rem;
+}
+
 .how-it-works ul,
 .who-its-for ul {
+  padding-left: 1.2rem;
   margin-top: 0.5rem;
 }
 
@@ -458,14 +505,40 @@ blockquote {
   margin-bottom: 0.4rem;
 }
 
-/* Mobile: collapse to single column */
+/* =========================
+   CTA Section
+   ========================= */
+
+.consultancy-cta {
+  grid-column: 1 / -1;
+  margin-top: 3.5rem;
+}
+
+.consultancy-cta p {
+  margin-bottom: 1.2rem;
+}
+
+/* =========================
+   Mobile
+   ========================= */
+
 @media (max-width: 768px) {
   .consultancy {
+    grid-template-columns: 1fr;
+  }
+
+  .consultancy-actions {
     grid-template-columns: 1fr;
   }
 
   .how-it-works,
   .who-its-for {
     grid-column: 1;
+  }
+
+  .consultancy .intro,
+  .consultancy > p,
+  .consultancy-card p {
+    text-align: left;
   }
 }
