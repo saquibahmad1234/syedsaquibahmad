@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const category = input.dataset.category;
   let allPosts = [];
 
-  fetch("/search.json")
+  fetch(window.SEARCH_URL)
     .then(res => res.json())
     .then(data => {
       allPosts = data.filter(post =>
