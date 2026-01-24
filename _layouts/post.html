@@ -20,8 +20,17 @@ layout: default
     <footer class="post-footer">
 
       <div class="back-to-writing">
-        <a href="{{ '/blogs/' | relative_url }}">← Back to writing</a>
+        {% if page.categories contains "taxation" %}
+          <a href="{{ '/consultancy/taxation/' | relative_url }}">← Back to taxation</a>
+      
+        {% elsif page.categories contains "personal-finance" %}
+          <a href="{{ '/consultancy/personal-finance/' | relative_url }}">← Back to personal finance</a>
+      
+        {% else %}
+          <a href="{{ '/blogs/' | relative_url }}">← Back to writing</a>
+        {% endif %}
       </div>
+
 
       <div class="post-nav">
         {% if page.previous %}
