@@ -48,10 +48,21 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    const matches = allPosts.filter(post =>
-      post.title.toLowerCase().includes(q) ||
-      post.content.toLowerCase().includes(q)
-    );
+    function normalize(text) {
+      return text
+        .toLowerCase()
+        .replace(/[^a-z0-9]/g, ""); // remove spaces, %, ₹, commas, etc.
+    }
+    
+    const normalizedQuery = normalize(q);
+    
+    const matches = allPosts.filter(post => {
+      const haystack =
+        normalize(post.title) +
+        normalize(post.content);
+    
+      return haystack.includes(normalizedQuery);
+    });
 
     renderPosts(matches);
   }
