@@ -7,7 +7,9 @@ permalink: /blogs/
 <main>
   <section class="intro">
     <h1>Blogs</h1>
-    <p>Writing to think clearly — about decisions, money, and how small choices compound over time.</p>
+    <p>
+      Writing to think clearly — about decisions, money, and how small choices compound over time.
+    </p>
   </section>
 
   <!-- Search -->
@@ -18,11 +20,12 @@ permalink: /blogs/
       placeholder="Search writing…"
       data-category="blog"
     >
+    <button id="search-button">Search</button>
   </div>
 
   <!-- Results -->
   <section class="posts-grid" id="search-results">
-    {% assign blog_posts = site.posts | where_exp: "post", "post.categories contains 'blogs'" %}
+    {% assign blog_posts = site.posts | where_exp: "post", "post.categories contains 'blog'" %}
     {% for post in blog_posts %}
       <article class="post-card">
         <a href="{{ post.url | relative_url }}">
