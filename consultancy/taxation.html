@@ -33,25 +33,42 @@ permalink: /consultancy/taxation/
   </section>
 
   <section class="taxation-writing">
-    <h2>Writing on taxation</h2>
+  <h2>Writing on taxation</h2>
 
-    <div class="posts-grid">
-      {% assign tax_posts = site.posts | where_exp: "post", "post.categories contains 'taxation'" %}
-      {% for post in tax_posts %}
-        <article class="post-card">
-          <a href="{{ post.url | relative_url }}">
-            <h3>{{ post.title }}</h3>
-            <div class="meta">{{ post.date | date: "%B %Y" }}</div>
-            <p>{{ post.excerpt | strip_html | truncate: 140 }}</p>
-          </a>
-        </article>
-      {% endfor %}
+  <!-- Search (Taxation only) -->
+  <div class="search-wrapper">
+    <input
+      type="text"
+      id="search-input"
+      placeholder="Search taxation writing…"
+      data-category="taxation"
+    >
+    <button id="search-button">Search</button>
+  </div>
 
-      {% if tax_posts == empty %}
-        <p>No taxation-specific writing yet. Articles will appear here as they are published.</p>
-      {% endif %}
-    </div>
-  </section>
+  <!-- Search URL injection (important) -->
+  <script>
+    window.SEARCH_URL = "{{ '/search.json' | relative_url }}";
+  </script>
+
+  <!-- Results -->
+  <div class="posts-grid" id="search-results">
+    {% assign tax_posts = site.posts | where_exp: "post", "post.categories contains 'taxation'" %}
+    {% for post in tax_posts %}
+      <article class="post-card">
+        <a href="{{ post.url | relative_url }}">
+          <h3>{{ post.title }}</h3>
+          <div class="meta">
+            {{ post.date | date: "%B %Y" }}
+            {% if post.read_time %} · {{ post.read_time }} min read{% endif %}
+          </div>
+          <p>{{ post.excerpt | strip_html | truncate: 140 }}</p>
+        </a>
+      </article>
+    {% endfor %}
+  </div>
+</section>
+
 
   <section class="taxation-back">
     <a href="{{ '/consultancy/' | relative_url }}">← Back to consultancy</a>
