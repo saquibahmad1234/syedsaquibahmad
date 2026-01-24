@@ -15,9 +15,7 @@ permalink: /blogs/
     </p>
 
     <section class="posts-grid">
-      {% assign blog_posts = site.posts
-        | reject_exp: "post", "post.categories contains 'taxation'"
-        | reject_exp: "post", "post.categories contains 'personal-finance'" %}
+      {% assign blog_posts = site.posts | where_exp: "post", "post.categories contains 'blogs'" %}
     
       {% for post in blog_posts %}
         <article class="post-card">
@@ -42,6 +40,7 @@ permalink: /blogs/
         <p>No writing published yet.</p>
       {% endif %}
     </section>
+
 
   </section>
 </main>
