@@ -400,73 +400,80 @@ blockquote {
 }
 
 /* =========================
-   Consultancy Page
+   Consultancy Page (Layout-first)
    ========================= */
 
 .consultancy {
-  max-width: 1000px;
+  max-width: 1100px;
 }
 
-/* --- Action cards --- */
+/* Main two-column layout */
+.consultancy > .intro,
+.consultancy > p {
+  max-width: 520px;
+}
 
+/* Two-column wrapper */
 .consultancy-actions {
-  margin: 4rem 0 5rem;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 3rem;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 4rem;
+  margin: 4rem 0;
 }
 
-/* Baby-pink cards */
+/* Right column: cards */
+.consultancy-actions {
+  align-items: start;
+}
+
+/* Cards stack inside right column */
+.consultancy-actions a {
+  margin-bottom: 2rem;
+}
+
+/* Cards */
 .consultancy-card {
   display: block;
-  padding: 3rem;
+  padding: 2.5rem;
   background: #fff1f6; /* baby pink */
-  border-radius: 28px;
+  border-radius: 24px;
   border: 1px solid rgba(124,108,246,0.12);
-  box-shadow: 0 20px 40px rgba(124,108,246,0.08);
+  box-shadow: 0 16px 32px rgba(124,108,246,0.08);
   text-decoration: none;
   color: var(--text-dark);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-  transition:
-    transform 0.35s ease,
-    box-shadow 0.35s ease;
+.consultancy-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 24px 48px rgba(124,108,246,0.16);
 }
 
 .consultancy-card h2 {
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
 }
 
 .consultancy-card p {
-  margin-bottom: 1.6rem;
-  color: var(--text-muted);
+  margin-bottom: 1.2rem;
   max-width: 100%;
 }
 
+/* CTA text inside card */
 .consultancy-card .cta {
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   color: var(--purple-main);
 }
 
-/* Hover motion */
-.consultancy-card:hover {
-  transform: translateY(-6px) scale(1.03);
-  box-shadow: 0 30px 60px rgba(124,108,246,0.18);
-}
-
-/* --- Two-column explanation sections --- */
-
+/* Left column: explanatory text */
 .how-it-works,
 .who-its-for {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  margin-bottom: 4rem;
+  max-width: 520px;
+  margin-bottom: 3rem;
 }
 
 .how-it-works h2,
 .who-its-for h2 {
-  grid-column: span 2;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 /* Lists */
@@ -477,53 +484,34 @@ blockquote {
 
 .how-it-works li,
 .who-its-for li {
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.5rem;
 }
 
-/* --- CTA section --- */
-
+/* CTA block */
 .consultancy-cta {
-  margin-top: 6rem;
-  padding: 4rem 3rem;
-  background: rgba(124,108,246,0.08);
-  border-radius: 28px;
-  text-align: center;
+  max-width: 520px;
+  margin-top: 4rem;
 }
 
 .consultancy-cta p {
-  margin-bottom: 2rem;
-  font-size: 1.05rem;
+  margin-bottom: 1.5rem;
 }
 
-/* Primary button */
-.primary-button {
-  display: inline-block;
-  padding: 0.9rem 2rem;
-  border-radius: 999px;
-  background: rgba(124,108,246,0.18);
-  color: var(--purple-main);
-  text-decoration: none;
-  font-size: 0.95rem;
-}
-
-.primary-button:hover {
-  background: rgba(124,108,246,0.28);
-}
-
-/* --- Mobile --- */
+/* =========================
+   Mobile
+   ========================= */
 
 @media (max-width: 768px) {
   .consultancy-actions {
     grid-template-columns: 1fr;
+    gap: 2.5rem;
   }
 
+  .consultancy > .intro,
+  .consultancy > p,
   .how-it-works,
-  .who-its-for {
-    grid-template-columns: 1fr;
-  }
-
-  .how-it-works h2,
-  .who-its-for h2 {
-    grid-column: span 1;
+  .who-its-for,
+  .consultancy-cta {
+    max-width: 100%;
   }
 }
