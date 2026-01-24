@@ -14,20 +14,34 @@ permalink: /blogs/
       decisions age over time. I write primarily to think clearly.
     </p>
 
-    <div class="posts-grid">
-      {% for post in site.posts %}
+    <section class="posts-grid">
+      {% assign blog_posts = site.posts
+        | reject_exp: "post", "post.categories contains 'taxation'"
+        | reject_exp: "post", "post.categories contains 'personal-finance'" %}
+    
+      {% for post in blog_posts %}
         <article class="post-card">
           <a href="{{ post.url | relative_url }}">
-            <h2>{{ post.title }}</h2>
+            <h3>{{ post.title }}</h3>
+    
             <div class="meta">
-              {{ post.date | date: "%B %Y" }}{% if post.read_time %} · {{ post.read_time }} min read{% endif %}
+              {{ post.date | date: "%B %Y" }}
+              {% if post.read_time %}
+                · {{ post.read_time }} min read
+              {% endif %}
             </div>
-            <p class="excerpt">
-              {{ post.excerpt | strip_html | truncate: 160 }}
+    
+            <p>
+              {{ post.excerpt | strip_html | truncate: 140 }}
             </p>
           </a>
         </article>
       {% endfor %}
-    </div>
+    
+      {% if blog_posts == empty %}
+        <p>No writing published yet.</p>
+      {% endif %}
+    </section>
+
   </section>
 </main>
