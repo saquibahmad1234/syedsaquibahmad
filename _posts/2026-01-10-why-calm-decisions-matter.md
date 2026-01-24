@@ -2,6 +2,7 @@
 layout: post
 title: Why calm decisions matter more than clever ones
 date: 2026-01-10
+categories: blogs
 read_time: 5
 ---
 
