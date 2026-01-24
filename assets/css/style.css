@@ -505,17 +505,47 @@ blockquote {
   margin-bottom: 0.4rem;
 }
 
+/* Center the "not a good fit" heading */
+.who-its-for h2:last-of-type {
+  grid-column: 1 / -1;
+  text-align: center;
+  margin: 2.5rem 0 1.2rem;
+}
+
+
 /* =========================
-   CTA Section
+   Consultancy Closing CTA
    ========================= */
 
 .consultancy-cta {
   grid-column: 1 / -1;
-  margin-top: 3.5rem;
+  margin-top: 4rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid rgba(124,108,246,0.15);
+  text-align: center;
 }
 
 .consultancy-cta p {
-  margin-bottom: 1.2rem;
+  margin-bottom: 1.6rem;
+  font-size: 1.05rem;
+  color: var(--text-muted);
+}
+
+/* Button-style link */
+.consultancy-cta a {
+  display: inline-block;
+  padding: 0.7rem 1.6rem;
+  border-radius: 999px;
+  background: rgba(124,108,246,0.12);
+  color: var(--purple-main);
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.consultancy-cta a:hover {
+  background: rgba(124,108,246,0.22);
+  transform: translateY(-1px);
 }
 
 /* =========================
