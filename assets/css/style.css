@@ -400,7 +400,7 @@ blockquote {
 }
 
 /* =========================
-   Consultancy Page (Clean)
+   Consultancy Page (FINAL)
    ========================= */
 
 .consultancy {
@@ -411,32 +411,22 @@ blockquote {
   column-gap: 4rem;
 }
 
-/* Page title + intro span full width */
+/* Full-width intro */
 .consultancy h1,
 .consultancy .intro,
 .consultancy > p {
   grid-column: 1 / -1;
-}
-
-/* Intro text styling */
-.consultancy .intro,
-.consultancy > p {
   text-align: justify;
-  margin-bottom: 1.2rem;
-  max-width: 768px;
+  max-width: 720px;
 }
 
-/* Reduce excessive spacing */
-.consultancy h1 {
-  margin-bottom: 1.5rem;
-}
-
+/* Tight spacing */
 .consultancy p {
   margin-bottom: 1.2rem;
 }
 
 /* =========================
-   Action Buttons (Cards)
+   Action Cards
    ========================= */
 
 .consultancy-actions {
@@ -444,13 +434,12 @@ blockquote {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 3rem;
-  margin: 3rem 0 2.5rem;
+  margin: 3rem 0;
 }
 
 .consultancy-card {
-  display: block;
   padding: 2.4rem;
-  background: #fff1f6; /* baby pink */
+  background: #fff1f6;
   border-radius: 22px;
   border: 1px solid rgba(124,108,246,0.12);
   text-decoration: none;
@@ -463,22 +452,12 @@ blockquote {
   box-shadow: 0 20px 40px rgba(124,108,246,0.15);
 }
 
-.consultancy-card h2 {
-  margin-bottom: 0.8rem;
-}
-
 .consultancy-card p {
-  margin-bottom: 1.2rem;
   text-align: justify;
 }
 
-.consultancy-card .cta {
-  font-size: 0.9rem;
-  color: var(--purple-main);
-}
-
 /* =========================
-   Two-column Content
+   Two-column content
    ========================= */
 
 .how-it-works {
@@ -486,66 +465,38 @@ blockquote {
 }
 
 .who-its-for {
-  grid-column: 2 / 3;
+  grid-column: 1 / -1; /* span full width */
+  margin-top: 2rem;
 }
 
-.how-it-works h2,
-.who-its-for h2 {
-  margin-bottom: 0.8rem;
-}
-
-.how-it-works ul,
-.who-its-for ul {
-  padding-left: 1.2rem;
-  margin-top: 0.5rem;
-}
-
-.how-it-works li,
-.who-its-for li {
-  margin-bottom: 0.4rem;
-}
-
-/* Center the "not a good fit" heading */
+/* Center the divider heading */
 .who-its-for h2:last-of-type {
-  grid-column: 1 / -1;
   text-align: center;
   margin: 3rem 0 1.5rem;
 }
 
+/* Split lists into two columns */
+.who-its-for ul {
+  column-count: 2;
+  column-gap: 4rem;
+  padding-left: 1.2rem;
+}
+
+.who-its-for li {
+  break-inside: avoid;
+  margin-bottom: 0.4rem;
+}
 
 /* =========================
-   Consultancy Closing CTA
+   CTA
    ========================= */
 
 .consultancy-cta {
   grid-column: 1 / -1;
-  margin-top: 4rem;
-  padding-top: 2.5rem;
+  margin-top: 3rem;
+  padding-top: 2rem;
   border-top: 1px solid rgba(124,108,246,0.15);
   text-align: center;
-}
-
-.consultancy-cta p {
-  margin-bottom: 1.6rem;
-  font-size: 1.05rem;
-  color: var(--text-muted);
-}
-
-/* Button-style link */
-.consultancy-cta a {
-  display: inline-block;
-  padding: 0.7rem 1.6rem;
-  border-radius: 999px;
-  background: rgba(124,108,246,0.12);
-  color: var(--purple-main);
-  text-decoration: none;
-  font-size: 0.95rem;
-  transition: background 0.25s ease, transform 0.25s ease;
-}
-
-.consultancy-cta a:hover {
-  background: rgba(124,108,246,0.22);
-  transform: translateY(-1px);
 }
 
 /* =========================
@@ -561,14 +512,12 @@ blockquote {
     grid-template-columns: 1fr;
   }
 
-  .how-it-works,
-  .who-its-for {
-    grid-column: 1;
+  .who-its-for ul {
+    column-count: 1;
   }
 
-  .consultancy .intro,
-  .consultancy > p,
-  .consultancy-card p {
+  .consultancy h1,
+  .consultancy p {
     text-align: left;
   }
 }
