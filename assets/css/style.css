@@ -400,130 +400,72 @@ blockquote {
 }
 
 /* =========================
-   Consultancy Page
+   Consultancy Page – FIXED LAYOUT
    ========================= */
 
-.consultancy {
-  max-width: 1000px;
-}
-
-/* --- Action cards --- */
-
-.consultancy-actions {
-  margin: 4rem 0 5rem;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 3rem;
-}
-
-/* Baby-pink cards */
-.consultancy-card {
-  display: block;
-  padding: 3rem;
-  background: #fff1f6; /* baby pink */
-  border-radius: 28px;
-  border: 1px solid rgba(124,108,246,0.12);
-  box-shadow: 0 20px 40px rgba(124,108,246,0.08);
-  text-decoration: none;
-  color: var(--text-dark);
-
-  transition:
-    transform 0.35s ease,
-    box-shadow 0.35s ease;
-}
-
-.consultancy-card h2 {
-  margin-bottom: 1rem;
-}
-
-.consultancy-card p {
-  margin-bottom: 1.6rem;
-  color: var(--text-muted);
-  max-width: 100%;
-}
-
-.consultancy-card .cta {
-  font-size: 0.95rem;
-  color: var(--purple-main);
-}
-
-/* Hover motion */
-.consultancy-card:hover {
-  transform: translateY(-6px) scale(1.03);
-  box-shadow: 0 30px 60px rgba(124,108,246,0.18);
-}
-
-/* --- Two-column explanation sections --- */
-
-.how-it-works,
-.who-its-for {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  margin-bottom: 4rem;
-}
-
-.how-it-works h2,
-.who-its-for h2 {
-  grid-column: span 2;
+/* Reduce excessive vertical spacing */
+.consultancy h1 {
   margin-bottom: 1.5rem;
 }
 
-/* Lists */
+.consultancy p {
+  margin-bottom: 1.2rem;
+}
+
+/* Create ONE two-column grid for page body */
+.consultancy > .consultancy-actions,
+.consultancy > .how-it-works,
+.consultancy > .who-its-for {
+  margin-top: 2.5rem;
+}
+
+/* Wrap everything after intro into two columns */
+.consultancy {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 4rem;
+}
+
+/* Make heading + intro span full width */
+.consultancy > h1,
+.consultancy > .intro,
+.consultancy > p {
+  grid-column: 1 / -1;
+}
+
+/* Buttons sit naturally in columns */
+.consultancy-actions {
+  grid-column: 1 / -1;
+}
+
+/* Text sections split into columns */
+.how-it-works {
+  grid-column: 1 / 2;
+}
+
+.who-its-for {
+  grid-column: 2 / 3;
+}
+
+/* Tighten list spacing */
 .how-it-works ul,
 .who-its-for ul {
-  padding-left: 1.2rem;
+  margin-top: 0.5rem;
 }
 
 .how-it-works li,
 .who-its-for li {
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.4rem;
 }
 
-/* --- CTA section --- */
-
-.consultancy-cta {
-  margin-top: 6rem;
-  padding: 4rem 3rem;
-  background: rgba(124,108,246,0.08);
-  border-radius: 28px;
-  text-align: center;
-}
-
-.consultancy-cta p {
-  margin-bottom: 2rem;
-  font-size: 1.05rem;
-}
-
-/* Primary button */
-.primary-button {
-  display: inline-block;
-  padding: 0.9rem 2rem;
-  border-radius: 999px;
-  background: rgba(124,108,246,0.18);
-  color: var(--purple-main);
-  text-decoration: none;
-  font-size: 0.95rem;
-}
-
-.primary-button:hover {
-  background: rgba(124,108,246,0.28);
-}
-
-/* --- Mobile --- */
-
+/* Mobile: collapse to single column */
 @media (max-width: 768px) {
-  .consultancy-actions {
+  .consultancy {
     grid-template-columns: 1fr;
   }
 
   .how-it-works,
   .who-its-for {
-    grid-template-columns: 1fr;
-  }
-
-  .how-it-works h2,
-  .who-its-for h2 {
-    grid-column: span 1;
+    grid-column: 1;
   }
 }
