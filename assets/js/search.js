@@ -1,34 +1,19 @@
 document.addEventListener("DOMContentLoaded", () => {
   const input = document.getElementById("search-input");
-  const resultsContainer = document.getElementById("search-results");
+  const button = document.getElementById("search-button");
+  const cards = document.querySelectorAll(".post-card");
 
-  if (!input || !resultsContainer) return;
+  if (!input || !button || !cards.length) return;
 
-  fetch("/search.json")
-    .then(res => res.json())
-    .then(posts => {
-      input.addEventListener("input", () => {
-        const query = input.value.toLowerCase().trim();
-        resultsContainer.innerHTML = "";
+  function runSearch() {
+    const query = input.value.toLowerCase().trim();
 
-        if (!query) return;
-
-        const filtered = posts.filter(post =>
-          post.title.toLowerCase().includes(query) ||
-          post.content.toLowerCase().includes(query)
-        );
-
-        filtered.forEach(post => {
-          const el = document.createElement("article");
-          el.className = "post-card";
-          el.innerHTML = `
-            <a href="${post.url}">
-              <h3>${post.title}</h3>
-              <p>${post.content.substring(0, 140)}…</p>
-            </a>
-          `;
-          resultsContainer.appendChild(el);
-        });
-      });
+    cards.forEach(card => {
+      const text = card.innerText.toLowerCase();
+      card.style.display = text.includes(query) ? "" : "none";
     });
+  }
+
+  button.addEventListener("click", runSearch);
+  input.addEventListener("keyup", runSearch);
 });
