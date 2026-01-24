@@ -403,26 +403,75 @@ blockquote {
    Consultancy Page (Final)
    ========================= */
 
-/* Container spacing */
 .consultancy {
   max-width: 1000px;
   margin: auto;
 }
 
 /* -------------------------
-   How it works (center)
+   Action cards (Taxation / Personal Finance)
+   ------------------------- */
+
+.consultancy-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin: 3.5rem 0 4.5rem;
+}
+
+.consultancy-card {
+  display: block;
+  padding: 2.4rem;
+  background: #fff1f6; /* baby pink */
+  border-radius: 22px;
+  border: 1px solid rgba(124,108,246,0.12);
+  text-decoration: none;
+  color: var(--text-dark);
+  box-shadow: 0 16px 32px rgba(124,108,246,0.08);
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.consultancy-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 24px 48px rgba(124,108,246,0.16);
+}
+
+.consultancy-card h2 {
+  margin-bottom: 0.8rem;
+}
+
+.consultancy-card p {
+  margin-bottom: 1.2rem;
+  color: var(--text-muted);
+}
+
+/* CTA text inside card */
+.consultancy-card .cta {
+  font-size: 0.9rem;
+  color: var(--purple-main);
+  text-decoration: none;
+}
+
+/* -------------------------
+   How it works (centered)
    ------------------------- */
 
 .how-it-works {
   text-align: center;
-  max-width: 600px;
-  margin: 4rem auto 3.5rem;
+  max-width: 640px;
+  margin: 0 auto 4rem;
 }
 
+.how-it-works h2 {
+  margin-bottom: 1.2rem;
+}
+
+/* Center the bullet list properly */
 .how-it-works ul {
-  list-style: disc;
+  display: inline-block;       /* THIS is the key */
+  text-align: left;            /* bullets stay readable */
   padding-left: 1.2rem;
-  text-align: left;
   margin-top: 1rem;
 }
 
@@ -450,54 +499,4 @@ blockquote {
 }
 
 .fit li {
-  margin-bottom: 0.5rem;
-}
-
-/* -------------------------
-   CTA (centered)
-   ------------------------- */
-
-.consultancy-cta {
-  text-align: center;
-  padding-top: 3rem;
-  border-top: 1px solid rgba(124,108,246,0.15);
-}
-
-.consultancy-cta p {
-  margin-bottom: 1.6rem;
-  font-size: 1.05rem;
-  color: var(--text-muted);
-}
-
-/* Button */
-.primary-button {
-  display: inline-block;
-  padding: 0.75rem 1.8rem;
-  border-radius: 999px;
-  background: rgba(124,108,246,0.15);
-  color: var(--purple-main);
-  text-decoration: none;
-  font-size: 0.95rem;
-  transition: background 0.25s ease, transform 0.25s ease;
-}
-
-.primary-button:hover {
-  background: rgba(124,108,246,0.25);
-  transform: translateY(-1px);
-}
-
-/* -------------------------
-   Mobile
-   ------------------------- */
-
-@media (max-width: 768px) {
-  .fit-columns {
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
-  }
-
-  .how-it-works {
-    margin-top: 3rem;
-  }
-}
-
+  margin-bottom: 0.5r
