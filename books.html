@@ -1,1 +1,81 @@
+---
+layout: default
+title: Books · Syed Saquib Ahmad
+description: My writing in book form, and reviews of books I’ve read and reflected on.
+permalink: /books/
+---
 
+<main class="books">
+
+  <!-- =========================
+       Your Book Showcase
+       ========================= -->
+  <section class="book-hero">
+    <div class="book-hero-grid">
+      <div class="book-cover">
+        <!-- Replace src with your actual book cover -->
+        <img src="/assets/images/my-book-cover.jpg" alt="Book cover">
+      </div>
+
+      <div class="book-info">
+        <h1>Your Book Title</h1>
+        <p class="book-description">
+          A short, thoughtful description of your book goes here. Explain what the
+          book is about, who it’s for, and why you wrote it — without marketing hype.
+        </p>
+
+        <div class="book-links">
+          <a href="#" class="primary-button" target="_blank" rel="noopener">Buy on Amazon</a>
+          <a href="#" class="secondary-button" target="_blank" rel="noopener">Buy on Flipkart</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================
+       Book Reviews
+       ========================= -->
+  <section class="book-reviews">
+    <h2>Book Reviews</h2>
+    <p class="section-intro">
+      Notes and reflections on books I’ve read — focused on ideas that hold up over
+      time, not summaries or ratings alone.
+    </p>
+
+    <!-- Search (Book reviews only) -->
+    <div class="search-wrapper">
+      <input
+        type="text"
+        id="search-input"
+        placeholder="Search book reviews…"
+        data-category="book-review"
+      >
+      <button id="search-button">Search</button>
+    </div>
+
+    <!-- Search URL injection -->
+    <script>
+      window.SEARCH_URL = "{{ '/search.json' | relative_url }}";
+    </script>
+
+    <!-- Book review tiles -->
+    <div class="books-grid" id="search-results">
+      {% assign review_posts = site.posts | where_exp: "post", "post.categories contains 'book-review'" %}
+      {% for post in review_posts %}
+        <article class="book-tile">
+          <a href="{{ post.url | relative_url }}">
+            <div class="book-tile-cover">
+              <img src="{{ post.book_cover | relative_url }}" alt="{{ post.title }} cover">
+            </div>
+            <h3 class="book-title">{{ post.title }}</h3>
+          </a>
+        </article>
+      {% endfor %}
+
+      {% if review_posts == empty %}
+        <p>No book reviews yet. They’ll appear here as I publish them.</p>
+      {% endif %}
+    </div>
+  </section>
+
+</main>
