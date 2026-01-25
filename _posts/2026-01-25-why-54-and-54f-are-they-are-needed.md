@@ -17,7 +17,7 @@ Section 54F provides exemption from long-term capital gains tax when an individu
 The exemption under Section 54F is available only to:
 - Individual
 - Hindu Undivided Family (HUF)
-
+<BR>
 ---
 
 ### Nature of Original Asset Transferred
