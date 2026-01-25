@@ -27,7 +27,7 @@ Conditions relating to the original asset:
 - Must be a long-term capital asset
 - Must not be a residential house property
 
-Examples:- (Land or plot, Commercial property, Shares, mutual funds, bonds, Gold or other capital assets (held long-term))
+Examples:- (Land or plot, Commercial property, Shares, mutual funds, bonds, Gold or other capital assets (held long-term)) <BR>
 If the original asset is a residential house, Section 54 applies instead of Section 54F.
 
 ---
@@ -57,7 +57,7 @@ This cap applies separately under:
 <BR>
 
 ## Ownership Conditions (Critical Restrictions)
-On the date of transfer of the original asset, the assessee must not own more than one residential house, other than the new house.
+On the date of transfer of the original asset, the assessee must not own more than one residential house, other than the new house. Further, the assessee must not purchase another residential house within 2 years after the date of transfer, or construct another residential house within 3 years after the date of transfer.
 
 ## Amount of exemption
 Exemption is linked to net consideration, not capital gains.
@@ -66,3 +66,37 @@ Maximum investment considered is Lower of:
 - ₹10 crore
 
 Formula = Long Term Capital Gain × (Eligible investment ÷ Net consideration)
+where:
+- Eligible investment = Cost of new house restricted to ₹10 crore
+- Net consideration = Sale consideration minus transfer expenses
+
+Full exemption when entire net consideration (up to ₹10 crore) is invested.
+<BR>
+## Capital Gains Account Scheme (CGAS)
+If the net consideration is not fully utilised before the due date of filing return under Section 139(1), the unutilised amount must be deposited in the Capital Gains Account Scheme, and deposit must be made on or before the due date. Failure to comply results in loss of exemption to that extent.
+
+## Lock in Period
+If the new residential house is transferred within 3 years from purchase or construction, the exemption claimed earlier becomes taxable as long-term capital gain in the year of transfer.
+
+## Some Relevant Case Law Crux:
+- Exemption under 54F can't be denied on the ground that the construction was not completed within three years after the date on which transfer took place, on account of pendency of certain finishing work like flooring, electrical fittings, fittings of door shutter, etc. (Sambandam Udaykumar (2012) (Kar HC))
+- Where the SDV under section 50C has been adopted as the full value of consideration, the reinvestment made in acquireing a residential property, which is in excess of the actual net sale consideration, can be considered for the purpose of computation of exemption under section 54F, irrestpective of the source of funds for such reinvestment. (Gouli Mahadevappa (2013) (Kar HC)
+
+<BR>
+
+---
+
+<BR>
+
+## Example (Including ₹10 Crore Cap)
+Facts:
+- Sale of long-term land asset
+- Net consideration: ₹15 crore
+- Long-term capital gain: ₹6 crore
+- Investment in residential house: ₹12 crore
+
+Eligible investment for exemption:
+₹10 crore (cap applies)
+<BR>
+Exemption calculation: ₹6 crore × (₹10 crore ÷ ₹15 crore) = ₹4 crore <BR>
+Taxable long-term capital gain: ₹6 crore − ₹4 crore = ₹2 crore
