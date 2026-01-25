@@ -18,6 +18,7 @@ The exemption under Section 54F is available only to:
 - Individual
 - Hindu Undivided Family (HUF)
 <BR>
+
 ---
 
 ### Nature of Original Asset Transferred
@@ -34,10 +35,11 @@ If the original asset is a residential house, Section 54 applies instead of Sect
 The exemption is available when the assessee purchases or constructs One Residential House located in India.
 Time Limit:-
 - Purchase:
-  * Within 1 year before, or
-  * Within 2 years after the date of transfer
+  within
+   * Within 1 year before, or
+   * Within 2 years after the date of transfer
 - Construction:
-  * Within 3 years from the date of transfer
+   Within 3 years from the date of transfer
  
 ---
 
