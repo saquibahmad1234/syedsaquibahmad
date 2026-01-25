@@ -34,15 +34,12 @@ If the original asset is a residential house, Section 54 applies instead of Sect
 
 ## Nature of New Asset
 The exemption is available when the assessee purchases or constructs One Residential House located in India.
-**Time Limit:**
+Time Limit for purchase:
+- Within 1 year before, or
+- Within 2 years after the date of transfer
 
-- **Purchase:**
-    - Within 1 year before, or
-    - Within 2 years after the date of transfer
-
-- **Construction:**
-    - Within 3 years from the date of transfer
-
+Time limit for construction:
+- Within 3 years from the date of transfer
  
 ---
 
