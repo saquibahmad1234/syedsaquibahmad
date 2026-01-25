@@ -21,6 +21,7 @@ The exemption under Section 54F is available only to:
 
 ---
 
+<BR>
 ### Nature of Original Asset Transferred
 Conditions relating to the original asset:
 - Must be a long-term capital asset
@@ -33,13 +34,15 @@ If the original asset is a residential house, Section 54 applies instead of Sect
 
 ## Nature of New Asset
 The exemption is available when the assessee purchases or constructs One Residential House located in India.
-Time Limit:-
-- Purchase:
-  within
-   * Within 1 year before, or
-   * Within 2 years after the date of transfer
-- Construction:
-   Within 3 years from the date of transfer
+**Time Limit:**
+
+- **Purchase:**
+  - Within 1 year before, or
+  - Within 2 years after the date of transfer
+
+- **Construction:**
+  - Within 3 years from the date of transfer
+
  
 ---
 
