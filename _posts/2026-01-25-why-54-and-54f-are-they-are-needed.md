@@ -37,8 +37,8 @@ Time Limit:-
   * Within 1 year before, or
   * Within 2 years after the date of transfer
 - Construction:
-  - Within 3 years from the date of transfer
-
+  * Within 3 years from the date of transfer
+ 
 ---
 
 ## ₹10 Crore Investment Limit
