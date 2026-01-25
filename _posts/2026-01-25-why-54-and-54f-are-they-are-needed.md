@@ -37,11 +37,11 @@ The exemption is available when the assessee purchases or constructs One Residen
 **Time Limit:**
 
 - **Purchase:**
-  - Within 1 year before, or
-  - Within 2 years after the date of transfer
+    - Within 1 year before, or
+    - Within 2 years after the date of transfer
 
 - **Construction:**
-  - Within 3 years from the date of transfer
+    - Within 3 years from the date of transfer
 
  
 ---
