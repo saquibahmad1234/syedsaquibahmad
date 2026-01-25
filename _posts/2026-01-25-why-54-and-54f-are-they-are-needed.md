@@ -47,4 +47,25 @@ The exemption is available when the assessee purchases or constructs One Residen
 ---
 
 ## ₹10 Crore Investment Limit
+As per the amendment introduced by the Finance Act, 2023 (effective from Assessment Year 2024–25):
+- The maximum cost of the new residential house eligible for exemption under Section 54F is ₹10 crore
+- Any investment exceeding ₹10 crore is ignored for the purpose of computing exemption
 
+Impact:
+Even if the assessee invests more than ₹10 crore, the exemption will be restricted to investment of ₹10 crore only.
+
+This cap applies separately under:
+- Section 54, and
+- Section 54F
+<BR>
+
+## Ownership Conditions (Critical Restrictions)
+On the date of transfer of the original asset, the assessee must not own more than one residential house, other than the new house.
+
+## Amount of exemption
+Exemption is linked to net consideration, not capital gains.
+Maximum investment considered is Lower of:
+- Actual investment in new house, or
+- ₹10 crore
+
+Formula = Long Term Capital Gain × (Eligible investment ÷ Net consideration)
