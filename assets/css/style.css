@@ -687,6 +687,8 @@ blockquote {
   max-width: 520px;
   margin-bottom: 1.8rem;
   color: var(--text-muted);
+  text-align: justify;
+  text-justify: inter-word;
   line-height: 1.7;
 }
 
@@ -708,6 +710,20 @@ blockquote {
   transform: scale(1.05);
   box-shadow: 0 10px 25px rgba(124,108,246,0.25);
 }
+
+/* Unified book purchase buttons */
+.book-links a {
+  background: rgba(124,108,246,0.15);
+  color: var(--purple-main);
+  border: none;
+  font-weight: 500;
+}
+
+/* Hover remains same for both */
+.book-links a:hover {
+  background: rgba(124,108,246,0.25);
+}
+
 
 /* =========================
    Book Reviews Section
