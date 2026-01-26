@@ -799,3 +799,126 @@ blockquote {
     justify-content: center;
   }
 }
+
+/* =========================
+   Book Review Page
+   ========================= */
+
+.book-review {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+}
+
+/* =========================
+   Header section
+   ========================= */
+
+.book-review-header {
+  margin-bottom: 4rem;
+}
+
+.book-review-grid {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+/* Book cover */
+.book-review-cover img {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  border-radius: 14px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.18);
+}
+
+/* Meta text */
+.book-review-meta h1 {
+  margin-bottom: 0.4rem;
+}
+
+.book-author {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+/* =========================
+   Rating
+   ========================= */
+
+.book-rating {
+  font-size: 1.2rem;
+  letter-spacing: 0.15rem;
+  color: #c6c6d4;
+}
+
+.book-rating .filled {
+  color: #7c6cf6; /* soft purple */
+}
+
+/* =========================
+   Review content
+   ========================= */
+
+.book-review-content {
+  line-height: 1.75;
+}
+
+.book-review-content h2 {
+  margin-top: 2.8rem;
+  margin-bottom: 1rem;
+}
+
+.book-review-content p {
+  margin-bottom: 1.4rem;
+}
+
+.book-review-content ul {
+  margin-bottom: 1.6rem;
+}
+
+.book-review-content li {
+  margin-bottom: 0.4rem;
+}
+
+/* =========================
+   Back link
+   ========================= */
+
+.book-review-back {
+  margin-top: 4rem;
+}
+
+.book-review-back a {
+  text-decoration: none;
+  color: var(--purple-main);
+  font-size: 0.95rem;
+}
+
+.book-review-back a:hover {
+  text-decoration: underline;
+}
+
+/* =========================
+   Mobile
+   ========================= */
+
+@media (max-width: 768px) {
+  .book-review-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    text-align: center;
+  }
+
+  .book-review-cover {
+    max-width: 200px;
+    margin: 0 auto;
+  }
+
+  .book-rating {
+    justify-content: center;
+  }
+}
