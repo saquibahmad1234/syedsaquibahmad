@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Why Aaalu came before bhalu and lalu is kalu
+title: "Why Aaalu came before bhalu and lalu is kalu"
 date: 2026-01-10
 categories: [blog]
 read_time: 5
