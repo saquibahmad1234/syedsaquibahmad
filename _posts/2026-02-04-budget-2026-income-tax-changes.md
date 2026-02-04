@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Budget 2026 Highlights: Income Tax Act 2025, SGBs, and Buyback Changes Explained
-date: 2026-01-25
+date: 2026-02-04
 categories: taxation
 read_time: 10
 ---
