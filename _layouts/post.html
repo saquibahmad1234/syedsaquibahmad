@@ -2,77 +2,66 @@
 layout: default
 ---
 
-<main>
-  <article class="post">
+<article class="post">
 
-    <header class="post-header">
-      <h1>{{ page.title }}</h1>
-      <div class="post-meta">
-        {{ page.date | date: "%B %Y" }}{% if page.read_time %} · {{ page.read_time }} min read{% endif %}
-      </div>
-    </header>
+  <header class="post-header">
+    <h1 class="post-title">{{ page.title }}</h1>
 
-    <section class="post-content">
-      {{ content }}
-    </section>
-
-    <!-- Post footer navigation -->
-    <footer class="post-footer">
-
-      <div class="back-to-writing">
-        {% if page.categories contains "taxation" %}
-          <a href="{{ '/consultancy/taxation/' | relative_url }}">← Back to taxation</a>
-      
-        {% elsif page.categories contains "personal-finance" %}
-          <a href="{{ '/consultancy/personal-finance/' | relative_url }}">← Back to personal finance</a>
-      
-        {% else %}
-          <a href="{{ '/blogs/' | relative_url }}">← Back to writing</a>
+    {% if page.date %}
+      <p class="post-meta">
+        {{ page.date | date: "%B %Y" }}
+        {% if page.reading_time %}
+          · {{ page.reading_time }} min read
         {% endif %}
-      </div>
+      </p>
+    {% endif %}
+  </header>
 
+  <div class="post-content">
+    {{ content }}
+  </div>
 
-      <div class="post-nav">
-        {% assign current_category = page.categories[0] %}
-          {% assign category_posts = site.posts | where_exp:"post","post.categories contains current_category" %}
-          
-          {% for post in category_posts %}
-            {% if post.url == page.url %}
-              {% assign index = forloop.index0 %}
-            {% endif %}
-          {% endfor %}
-          
-          {% assign previous_post = category_posts[index | minus: 1] %}
-          {% assign next_post = category_posts[index | plus: 1] %}
+  {% comment %}
+  ============================
+  Category-scoped navigation
+  ============================
+  {% endcomment %}
 
-        {% if page.next %}
-          <a class="next-post" href="{{ page.next.url | relative_url }}">
-            {{ page.next.title }} →
-          </a>
-        {% endif %}
-      </div>
-      <div class="post-navigation">
-      
-        <a class="nav-button back" href="/{{ current_category }}/">
-          ← Back to {{ current_category | capitalize }}
-        </a>
-      
-        {% if previous_post %}
-          <a class="nav-button prev" href="{{ previous_post.url }}">
-            ← {{ previous_post.title }}
-          </a>
-        {% endif %}
-      
-        {% if next_post %}
-          <a class="nav-button next" href="{{ next_post.url }}">
-            {{ next_post.title }} →
-          </a>
-        {% endif %}
-      
-      </div>
+  {% assign current_category = page.categories[0] %}
+  {% assign category_posts = site.posts | where_exp:"post","post.categories contains current_category" %}
 
+  {% for post in category_posts %}
+    {% if post.url == page.url %}
+      {% assign index = forloop.index0 %}
+    {% endif %}
+  {% endfor %}
 
-    </footer>
+  {% assign previous_post = category_posts[index | minus: 1] %}
+  {% assign next_post = category_posts[index | plus: 1] %}
 
-  </article>
-</main>
+  <div class="post-navigation">
+
+    {% comment %} Back link {% endcomment %}
+    <a class="nav-button back" href="/{{ current_category }}/">
+      ← Back to
+      {% if current_category == "blogs" %}Writing{% endif %}
+      {% if current_category == "taxation" %}Taxation{% endif %}
+      {% if current_category == "personal-finance" %}Personal Finance{% endif %}
+      {% if current_category == "books" %}Books{% endif %}
+    </a>
+
+    {% if previous_post %}
+      <a class="nav-button prev" href="{{ previous_post.url }}">
+        ← {{ previous_post.title }}
+      </a>
+    {% endif %}
+
+    {% if next_post %}
+      <a class="nav-button next" href="{{ next_post.url }}">
+        {{ next_post.title }} →
+      </a>
+    {% endif %}
+
+  </div>
+
+</article>
