@@ -4,6 +4,9 @@ layout: default
 
 <article class="post">
 
+  <!-- =====================
+       Post Header
+  ====================== -->
   <header class="post-header">
     <h1 class="post-title">{{ page.title }}</h1>
 
@@ -17,18 +20,30 @@ layout: default
     {% endif %}
   </header>
 
+  <!-- =====================
+       Post Content
+  ====================== -->
   <div class="post-content">
     {{ content }}
   </div>
 
-  {% comment %}
-  ============================
-  Category-scoped navigation
-  ============================
-  {% endcomment %}
+  <!-- =====================
+       Category-scoped navigation
+  ====================== -->
 
   {% assign current_category = page.categories[0] %}
-  {% assign category_posts = site.posts | where_exp:"post","post.categories contains current_category" %}
+
+  {% comment %}
+  Build category-specific list
+  (preserve Jekyll's default newest-first order)
+  {% endcomment %}
+
+  {% assign category_posts = "" | split: "" %}
+  {% for post in site.posts %}
+    {% if post.categories contains current_category %}
+      {% assign category_posts = category_posts | push: post %}
+    {% endif %}
+  {% endfor %}
 
   {% for post in category_posts %}
     {% if post.url == page.url %}
@@ -36,13 +51,13 @@ layout: default
     {% endif %}
   {% endfor %}
 
-  {% assign previous_post = category_posts[index | minus: 1] %}
-  {% assign next_post = category_posts[index | plus: 1] %}
+  {% assign previous_post = category_posts[index | plus: 1] %}
+  {% assign next_post = category_posts[index | minus: 1] %}
 
   <div class="post-navigation">
 
-    {% comment %} Back link {% endcomment %}
-    <a class="nav-button back" href="/{{ current_category }}/">
+    <!-- Back to category -->
+    <a href="/{{ current_category }}/" class="pill-button back">
       ← Back to
       {% if current_category == "blogs" %}Writing{% endif %}
       {% if current_category == "taxation" %}Taxation{% endif %}
@@ -50,14 +65,16 @@ layout: default
       {% if current_category == "books" %}Books{% endif %}
     </a>
 
+    <!-- Previous post (older) -->
     {% if previous_post %}
-      <a class="nav-button prev" href="{{ previous_post.url }}">
+      <a href="{{ previous_post.url }}" class="pill-button prev">
         ← {{ previous_post.title }}
       </a>
     {% endif %}
 
+    <!-- Next post (newer) -->
     {% if next_post %}
-      <a class="nav-button next" href="{{ next_post.url }}">
+      <a href="{{ next_post.url }}" class="pill-button next">
         {{ next_post.title }} →
       </a>
     {% endif %}
