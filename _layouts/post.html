@@ -2,6 +2,26 @@
 layout: default
 ---
 
+{% assign current_category = page.categories[0] %}
+{% assign category_posts = site.posts | where_exp: "post", "post.categories contains current_category" %}
+
+{% for p in category_posts %}
+  {% if p.url == page.url %}
+    {% assign index = forloop.index0 %}
+  {% endif %}
+{% endfor %}
+
+{% assign prev_index = index | minus: 1 %}
+{% assign next_index = index | plus: 1 %}
+
+{% if prev_index >= 0 %}
+  {% assign prev_post = category_posts[prev_index] %}
+{% endif %}
+
+{% if next_index < category_posts.size %}
+  {% assign next_post = category_posts[next_index] %}
+{% endif %}
+
 <article class="post">
 
   <header class="post-header">
@@ -22,23 +42,23 @@ layout: default
 
     <!-- Back to category -->
     <div class="back-to-writing">
-      <a href="/{{ page.categories[0] }}/">
-        ← Back to Taxation
+      <a href="/{{ current_category }}/">
+        ← Back to {{ current_category | capitalize }}
       </a>
     </div>
 
-    {% if page.previous or page.next %}
+    {% if prev_post or next_post %}
       <nav class="post-nav">
 
-        {% if page.previous %}
-          <a href="{{ page.previous.url }}">
-            ← {{ page.previous.title }}
+        {% if prev_post %}
+          <a href="{{ prev_post.url }}">
+            ← {{ prev_post.title }}
           </a>
         {% endif %}
 
-        {% if page.next %}
-          <a href="{{ page.next.url }}">
-            {{ page.next.title }} →
+        {% if next_post %}
+          <a href="{{ next_post.url }}">
+            {{ next_post.title }} →
           </a>
         {% endif %}
 
