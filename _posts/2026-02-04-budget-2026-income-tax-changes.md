@@ -38,10 +38,10 @@ read_time: 10
 
 ---
 
-### Summary Table: The 3-Year Shift
+## Summary Table: The 3-Year Shift
 
-| Category | 2024-25 Rule | **New 2026 Rule** | Impact |
-| :--- | :--- | :--- | :--- |
-| **Buybacks** | Taxed as **Dividend** (Slab Rate) | Taxed as **Capital Gains** (12.5% / 20%) | ✅ **Positive** |
-| **Gold (SGB)** | Tax-Free for All | Tax-Free **only for Original Subscriber** | ❌ **Negative** |
-| **Slabs** | ₹12L Tax-Free Limit | **No Change** | ➖ **Neutral** |
+| Category | 2024–25 Rule | New 2026 Rule | Impact |
+|--------|--------------|---------------|--------|
+| Buybacks | Taxed as **Dividend** (Slab Rate) | Taxed as **Capital Gains** (12.5% / 20%) | ✅ Positive |
+| Gold (SGB) | Tax-Free for All | Tax-Free **only for Original Subscriber** | ❌ Negative |
+| Slabs | ₹12L Tax-Free Limit | **No Change** | ➖ Neutral |
