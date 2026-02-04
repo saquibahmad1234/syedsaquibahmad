@@ -13,9 +13,6 @@ layout: default
     {% if page.date %}
       <p class="post-meta">
         {{ page.date | date: "%B %Y" }}
-        {% if page.reading_time %}
-          · {{ page.reading_time }} min read
-        {% endif %}
       </p>
     {% endif %}
   </header>
@@ -32,55 +29,47 @@ layout: default
   ====================== -->
   <footer class="post-footer">
 
-    {% assign current_category = page.categories[0] %}
+    {% assign category = page.categories[0] %}
+    {% assign posts_in_category = site.categories[category] %}
 
     <!-- Back to category -->
     <div class="back-to-writing">
-      <a href="/{{ current_category }}/">
+      <a href="/{{ category }}/">
         ← Back to
-        {% if current_category == "blogs" %}Writing{% endif %}
-        {% if current_category == "taxation" %}Taxation{% endif %}
-        {% if current_category == "personal-finance" %}Personal Finance{% endif %}
-        {% if current_category == "books" %}Books{% endif %}
+        {% if category == "blogs" %}Writing{% endif %}
+        {% if category == "taxation" %}Taxation{% endif %}
+        {% if category == "personal-finance" %}Personal Finance{% endif %}
+        {% if category == "books" %}Books{% endif %}
       </a>
     </div>
 
-    {% comment %}
-    Build category-specific list (newest → oldest)
-    {% endcomment %}
+    {% if posts_in_category and posts_in_category.size > 1 %}
 
-    {% assign category_posts = "" | split: "" %}
-    {% for p in site.posts %}
-      {% if p.categories contains current_category %}
-        {% assign category_posts = category_posts | push: p %}
-      {% endif %}
-    {% endfor %}
+      {% for post in posts_in_category %}
+        {% if post.url == page.url %}
+          {% assign index = forloop.index0 %}
+        {% endif %}
+      {% endfor %}
 
-    {% for p in category_posts %}
-      {% if p.id == page.id %}
-        {% assign index = forloop.index0 %}
-      {% endif %}
-    {% endfor %}
+      {% assign previous_post = posts_in_category[index | plus: 1] %}
+      {% assign next_post = posts_in_category[index | minus: 1] %}
 
-    {% assign previous_post = category_posts[index | plus: 1] %}
-    {% assign next_post = category_posts[index | minus: 1] %}
-
-    {% if previous_post or next_post %}
       <nav class="post-nav">
 
-        {% if previous_post and previous_post.title %}
+        {% if previous_post %}
           <a href="{{ previous_post.url }}">
             ← {{ previous_post.title }}
           </a>
         {% endif %}
 
-        {% if next_post and next_post.title %}
+        {% if next_post %}
           <a href="{{ next_post.url }}">
             {{ next_post.title }} →
           </a>
         {% endif %}
 
       </nav>
+
     {% endif %}
 
   </footer>
