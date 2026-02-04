@@ -8,7 +8,7 @@ layout: default
        Post Header
   ====================== -->
   <header class="post-header">
-    <h1 class="post-title">{{ page.title }}</h1>
+    <h1>{{ page.title }}</h1>
 
     {% if page.date %}
       <p class="post-meta">
@@ -28,57 +28,62 @@ layout: default
   </div>
 
   <!-- =====================
-       Category-scoped navigation
+       Post Footer Navigation
   ====================== -->
+  <footer class="post-footer">
 
-  {% assign current_category = page.categories[0] %}
-
-  {% comment %}
-  Build category-specific list
-  (preserve Jekyll's default newest-first order)
-  {% endcomment %}
-
-  {% assign category_posts = "" | split: "" %}
-  {% for post in site.posts %}
-    {% if post.categories contains current_category %}
-      {% assign category_posts = category_posts | push: post %}
-    {% endif %}
-  {% endfor %}
-
-  {% for post in category_posts %}
-    {% if post.url == page.url %}
-      {% assign index = forloop.index0 %}
-    {% endif %}
-  {% endfor %}
-
-  {% assign previous_post = category_posts[index | plus: 1] %}
-  {% assign next_post = category_posts[index | minus: 1] %}
-
-  <div class="post-navigation">
+    {% assign current_category = page.categories[0] %}
 
     <!-- Back to category -->
-    <a href="/{{ current_category }}/" class="pill-button back">
-      ← Back to
-      {% if current_category == "blogs" %}Writing{% endif %}
-      {% if current_category == "taxation" %}Taxation{% endif %}
-      {% if current_category == "personal-finance" %}Personal Finance{% endif %}
-      {% if current_category == "books" %}Books{% endif %}
-    </a>
-
-    <!-- Previous post (older) -->
-    {% if previous_post %}
-      <a href="{{ previous_post.url }}" class="pill-button prev">
-        ← {{ previous_post.title }}
+    <div class="back-to-writing">
+      <a href="/{{ current_category }}/">
+        ← Back to
+        {% if current_category == "blogs" %}Writing{% endif %}
+        {% if current_category == "taxation" %}Taxation{% endif %}
+        {% if current_category == "personal-finance" %}Personal Finance{% endif %}
+        {% if current_category == "books" %}Books{% endif %}
       </a>
+    </div>
+
+    {% comment %}
+    Build category-specific post list
+    (preserves default newest → oldest order)
+    {% endcomment %}
+
+    {% assign category_posts = "" | split: "" %}
+    {% for post in site.posts %}
+      {% if post.categories contains current_category %}
+        {% assign category_posts = category_posts | push: post %}
+      {% endif %}
+    {% endfor %}
+
+    {% for post in category_posts %}
+      {% if post.url == page.url %}
+        {% assign index = forloop.index0 %}
+      {% endif %}
+    {% endfor %}
+
+    {% assign previous_post = category_posts[index | plus: 1] %}
+    {% assign next_post = category_posts[index | minus: 1] %}
+
+    {% if previous_post or next_post %}
+      <nav class="post-nav">
+
+        {% if previous_post %}
+          <a href="{{ previous_post.url }}">
+            ← {{ previous_post.title }}
+          </a>
+        {% endif %}
+
+        {% if next_post %}
+          <a href="{{ next_post.url }}">
+            {{ next_post.title }} →
+          </a>
+        {% endif %}
+
+      </nav>
     {% endif %}
 
-    <!-- Next post (newer) -->
-    {% if next_post %}
-      <a href="{{ next_post.url }}" class="pill-button next">
-        {{ next_post.title }} →
-      </a>
-    {% endif %}
-
-  </div>
+  </footer>
 
 </article>
