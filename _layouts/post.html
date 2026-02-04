@@ -46,19 +46,18 @@ layout: default
     </div>
 
     {% comment %}
-    Build category-specific post list
-    (preserves default newest → oldest order)
+    Build category-specific list (newest → oldest)
     {% endcomment %}
 
     {% assign category_posts = "" | split: "" %}
-    {% for post in site.posts %}
-      {% if post.categories contains current_category %}
-        {% assign category_posts = category_posts | push: post %}
+    {% for p in site.posts %}
+      {% if p.categories contains current_category %}
+        {% assign category_posts = category_posts | push: p %}
       {% endif %}
     {% endfor %}
 
-    {% for post in category_posts %}
-      {% if post.url == page.url %}
+    {% for p in category_posts %}
+      {% if p.id == page.id %}
         {% assign index = forloop.index0 %}
       {% endif %}
     {% endfor %}
@@ -69,13 +68,13 @@ layout: default
     {% if previous_post or next_post %}
       <nav class="post-nav">
 
-        {% if previous_post %}
+        {% if previous_post and previous_post.title %}
           <a href="{{ previous_post.url }}">
             ← {{ previous_post.title }}
           </a>
         {% endif %}
 
-        {% if next_post %}
+        {% if next_post and next_post.title %}
           <a href="{{ next_post.url }}">
             {{ next_post.title }} →
           </a>
