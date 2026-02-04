@@ -51,6 +51,26 @@ layout: default
           </a>
         {% endif %}
       </div>
+      <div class="post-navigation">
+      
+        <a class="nav-button back" href="/{{ current_category }}/">
+          ← Back to {{ current_category | capitalize }}
+        </a>
+      
+        {% if previous_post %}
+          <a class="nav-button prev" href="{{ previous_post.url }}">
+            ← {{ previous_post.title }}
+          </a>
+        {% endif %}
+      
+        {% if next_post %}
+          <a class="nav-button next" href="{{ next_post.url }}">
+            {{ next_post.title }} →
+          </a>
+        {% endif %}
+      
+      </div>
+
 
     </footer>
 
