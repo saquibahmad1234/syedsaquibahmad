@@ -33,11 +33,17 @@ layout: default
 
 
       <div class="post-nav">
-        {% if page.previous %}
-          <a class="prev-post" href="{{ page.previous.url | relative_url }}">
-            ← {{ page.previous.title }}
-          </a>
-        {% endif %}
+        {% assign current_category = page.categories[0] %}
+          {% assign category_posts = site.posts | where_exp:"post","post.categories contains current_category" %}
+          
+          {% for post in category_posts %}
+            {% if post.url == page.url %}
+              {% assign index = forloop.index0 %}
+            {% endif %}
+          {% endfor %}
+          
+          {% assign previous_post = category_posts[index | minus: 1] %}
+          {% assign next_post = category_posts[index | plus: 1] %}
 
         {% if page.next %}
           <a class="next-post" href="{{ page.next.url | relative_url }}">
