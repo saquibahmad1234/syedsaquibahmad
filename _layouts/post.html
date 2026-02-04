@@ -4,9 +4,6 @@ layout: default
 
 <article class="post">
 
-  <!-- =====================
-       Post Header
-  ====================== -->
   <header class="post-header">
     <h1>{{ page.title }}</h1>
 
@@ -17,59 +14,35 @@ layout: default
     {% endif %}
   </header>
 
-  <!-- =====================
-       Post Content
-  ====================== -->
   <div class="post-content">
     {{ content }}
   </div>
 
-  <!-- =====================
-       Post Footer Navigation
-  ====================== -->
   <footer class="post-footer">
-
-    {% assign category = page.categories[0] %}
-    {% assign posts_in_category = site.categories[category] %}
 
     <!-- Back to category -->
     <div class="back-to-writing">
-      <a href="/{{ category }}/">
-        ← Back to
-        {% if category == "blogs" %}Writing{% endif %}
-        {% if category == "taxation" %}Taxation{% endif %}
-        {% if category == "personal-finance" %}Personal Finance{% endif %}
-        {% if category == "books" %}Books{% endif %}
+      <a href="/{{ page.categories[0] }}/">
+        ← Back to Taxation
       </a>
     </div>
 
-    {% if posts_in_category and posts_in_category.size > 1 %}
-
-      {% for post in posts_in_category %}
-        {% if post.url == page.url %}
-          {% assign index = forloop.index0 %}
-        {% endif %}
-      {% endfor %}
-
-      {% assign previous_post = posts_in_category[index | plus: 1] %}
-      {% assign next_post = posts_in_category[index | minus: 1] %}
-
+    {% if page.previous or page.next %}
       <nav class="post-nav">
 
-        {% if previous_post %}
-          <a href="{{ previous_post.url }}">
-            ← {{ previous_post.title }}
+        {% if page.previous %}
+          <a href="{{ page.previous.url }}">
+            ← {{ page.previous.title }}
           </a>
         {% endif %}
 
-        {% if next_post %}
-          <a href="{{ next_post.url }}">
-            {{ next_post.title }} →
+        {% if page.next %}
+          <a href="{{ page.next.url }}">
+            {{ page.next.title }} →
           </a>
         {% endif %}
 
       </nav>
-
     {% endif %}
 
   </footer>
