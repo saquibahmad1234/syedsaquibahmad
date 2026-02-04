@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Why tax decisions should be made before they are needed
+title: "Why tax decisions should be made before they are needed"
 date: 2026-01-10
 categories: [taxation]
 read_time: 5
