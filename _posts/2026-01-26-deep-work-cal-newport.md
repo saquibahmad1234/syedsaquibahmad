@@ -1,6 +1,6 @@
 ---
 layout: book-review
-title: Deep Work
+title: "Deep Work"
 author: Cal Newport
 rating: 4
 categories:
