@@ -2,7 +2,7 @@
 layout: post
 title: "Renting vs Buying: The Ultimate Decision Framework"
 date: 2026-02-16
-categories: [personal finance, real estate, life decisions]
+categories: [taxation]
 read_time: 15
 ---
 
