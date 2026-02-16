@@ -21,7 +21,7 @@ Buying is often an act of "settling down" in the truest sense. It offers:
 * **Psychological Ownership:** There is a profound difference between living in a house and owning a home. The ability to renovate, knock down walls, and customize your space creates a sense of belonging that renting rarely matches.
 * **Forced Savings:** For those who struggle with financial discipline, a mortgage acts as a forced savings account. You are building equity (ownership) with every principal payment, rather than seeing 100% of your monthly outlay vanish as rent.
 * **Stability:** No landlord can sell the house out from under you or hike the rent arbitrarily. You have a fixed address for your children’s schooling and your community ties.
-
+<BR>
 ### The Case for Renting (Wings)
 Renting is often unfairly stigmatized as "throwing money away," but it is actually purchasing **freedom**.
 * **Mobility:** In a modern economy, the biggest income jumps often come from moving cities or changing jobs. A house is a massive anchor. If a great opportunity arises in another country, a renter can pack up in a month; a homeowner is stuck managing an asset.
